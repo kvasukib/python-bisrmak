@@ -21,26 +21,35 @@ f = open(output_file,'w+')
 #parse bordermap output using Amogh's code
 #write routers in array of objects
 (routers,interface2rtr,interface2name) = read_bdrmap_file(filename)
-print len(routers)
+print("number of routers = " + str(len(routers)))
+
 for j in range(len(routers)):
-#print basic info of router
+#for j in range(50):
+	#print basic info of router
+	f.write("---------------------------------------\n")
+	f.write("---------------------------------------\n")
 	f.write("---------------------------------------\n")
 	f.write("Router ID = " + str(routers[j].id) + '\n')
 	f.write("owner = " + str(routers[j].owner))
 	f.write('\n')
 	temp = "AS" + str(routers[j].owner)
 	#print AS info of router owner
-
-	f.seek(0, os.SEEK_END)
-	subprocess.call(["whois", "-h", "whois.cymru.com", "-v", temp, "2>/dev/null"], stdout = f)
-
-	f.write("relationship = " + str(routers[router_number].rel))
+	
+	#declare buffer / empty for next use
+	output = bytearray()
+	
+	#Query whois database for AS number seen in router
+	output = subprocess.check_output(["whois", "-h", "whois.cymru.com", "-v", temp])
+	
+	f.write("relationship = " + str(routers[j].rel))
 	f.write("\n")
+	f.write(str(output))
 	f.write("interfaces = ")
 	f.write('\n')
-	 
+	
+	#Print interfaces
 	s = []
-	s = list(routers[router_number].interfaces)
+	s = list(routers[j].interfaces)
 	for i in range(len(s)):
 		if(s[i].star): #Only print interfaces directly seen in traceroute
 			f.write(s[i].ip)
@@ -48,14 +57,17 @@ for j in range(len(routers)):
 
 	#Print information of neighboring routers
 	t = []
-	t = list(routers[router_number].neighbors)
-	f.write("neighbor routers = \n")
+	t = list(routers[j].neighbors)
+	#print ("this is t\n")
+	#print (t)
+	f.write("\nneighbor routers:\n")
 	for k in range(len(t)):
 		#print t[i].owner
+		f.write("Neighbor ID = " + str(t[k].id) + '\n')
 		temp = "AS" + str(t[k].owner) 
 		#print AS name (owner) to file
-		f.seek(0, os.SEEK_END)
-		subprocess.call(["whois", "-h", "whois.cymru.com", "-v", temp], stdout=f)
-		f.seek(0, os.SEEK_END)
-		f.write("---------------------------------------\n")
+		output = bytearray()
+		output = subprocess.check_output(["whois", "-h", "whois.cymru.com", "-v", temp])
+		f.write(str(output))
+		f.write('\n')
 f.close()
