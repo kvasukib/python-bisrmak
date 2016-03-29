@@ -4,6 +4,8 @@ import numpy as np
 from pylab import rcParams, figure, axes, pie, title, show
 import sys
 import os
+import datetime as dt
+import matplotlib.dates as mdate
 
 x_label = 'Time'
 y_label = 'rtt (ms)'
@@ -44,18 +46,29 @@ for j in range(number_files):
 
 		#Read values from file
 		for row in reader: 
-			x = int(row[0]) #timestamps
+			secs = mdate.epoch2num(float(row[0]))
+			#x = time.gmtime(float(row[0])) #timestamps
 			y = (int(row[4]))/10 #file has ms*10		
-			plotx.append(x)
+			plotx.append(secs)
 			ploty.append(y)
 
 		#Change plot options
+		#print plotx[0]
 		plt.subplot(number_files, 1, (j+1))
 		plt.title(str(filename))
-		plt.scatter(plotx, ploty, color='r', s=1, alpha = 0.7)
+		plt.plot_date(plotx, ploty, color='r', alpha = 0.7, marker = ",")
 		plt.xlabel(x_label)
 		plt.ylabel(y_label)
 		plt.ylim([yaxislow, yaxishigh])
+		# Choose your xtick format string
+		#date_fmt = '%d-%m-%y %H:%M:%S'
+
+		# Use a DateFormatter to set the data to the correct format
+		#date_formatter = mdate.DateFormatter(date_fmt)
+		#ax.xaxis.set_major_formatter(date_formatter)
+
+		# Sets the tick labels diagonal so they fit easier.
+		#plt.autofmt_xdate()
 	if j == (number_files-1):
 		plt.tight_layout()
 		plt.savefig('plot.png')
