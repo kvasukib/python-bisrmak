@@ -13,7 +13,7 @@ yaxislow = 0
 yaxishigh = 600
 number_files = len(sys.argv) - 1
 #Plots 1-6 time series files, latency vs. time
-figure(1, figsize=(10, 15))
+
 if (number_files == 0 or number_files > 6):
 	raise error('please provide 1-6 time series files') 
 
@@ -54,23 +54,25 @@ for j in range(number_files):
 
 		#Change plot options
 		#print plotx[0]
-		plt.subplot(number_files, 1, (j+1))
-		plt.title(str(filename))
-		plt.plot_date(plotx, ploty, color='r', alpha = 0.7, marker = ",")
-		plt.xlabel(x_label)
-		plt.ylabel(y_label)
-		plt.ylim([yaxislow, yaxishigh])
+		if j == 0: 
+			fig = plt.figure(1, figsize=(9, (number_files*3)))
+		ax = fig.add_subplot(number_files, 1, (j+1))
+		ax.set_title(str(filename))
+		ax.plot_date(plotx, ploty, color='r', alpha = 1, marker = ",")
+		ax.set_xlabel(x_label)
+		ax.set_ylabel(y_label)
+		ax.set_ylim([yaxislow, yaxishigh])
 		# Choose your xtick format string
-		#date_fmt = '%d-%m-%y %H:%M:%S'
+		date_fmt = '%m-%d-%y %H:%M:%S'
 
 		# Use a DateFormatter to set the data to the correct format
-		#date_formatter = mdate.DateFormatter(date_fmt)
-		#ax.xaxis.set_major_formatter(date_formatter)
+		date_formatter = mdate.DateFormatter(date_fmt)
+		ax.xaxis.set_major_formatter(date_formatter)
 
-		# Sets the tick labels diagonal so they fit easier.
-		#plt.autofmt_xdate()
 	if j == (number_files-1):
-		plt.tight_layout()
-		plt.savefig('plot.png')
+		# Sets the tick labels diagonal so they fit easier.
+                fig.autofmt_xdate()
+		fig.tight_layout()
+		fig.savefig('plot.png')
 			
 		
