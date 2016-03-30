@@ -1,0 +1,8 @@
+screen -S OW744401937CAA -X stuff '^C'`echo -ne '\015'`
+screen -S OW2CB05D873788 -X stuff '^C'`echo -ne '\015'`
+screen -S OWC43DC7A3F0D4 -X stuff '^C'`echo -ne '\015'`
+screen -S OWE8DE27B72513 -X stuff '^C'`echo -ne '\015'`
+screen -S OWC43DC7A3EE22 -X stuff '^C'`echo -ne '\015'`
+screen -S OWA021B7A9BE39 -X stuff '^C'`echo -ne '\015'`
+
+
