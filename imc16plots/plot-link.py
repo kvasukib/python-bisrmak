@@ -7,10 +7,10 @@ import os
 import datetime as dt
 import matplotlib.dates as mdate
 
-x_label = 'Time'
+x_label = 'Date and Time'
 y_label = 'rtt (ms)'
 yaxislow = 0
-yaxishigh = 600
+yaxishigh = 200
 number_files = len(sys.argv) - 1
 #Plots 1-6 time series files, latency vs. time
 
@@ -23,7 +23,7 @@ for j in range(number_files):
 	ploty = []
 
 	filename = str(sys.argv[j+1]) #start at 1 (not to use script name)
-
+	s_label = filename.split('.')[-2]
 	try:
 		f = open(filename, 'rb')#import file
 		
@@ -55,10 +55,22 @@ for j in range(number_files):
 		#Change plot options
 		#print plotx[0]
 		if j == 0: 
-			fig = plt.figure(1, figsize=(9, (number_files*3)))
-		ax = fig.add_subplot(number_files, 1, (j+1))
-		ax.set_title(str(filename))
-		ax.plot_date(plotx, ploty, color='r', alpha = 1, marker = ",")
+			fig = plt.figure(1, figsize=(9, 6))
+			ax = fig.add_subplot(111)
+			title = filename.split('.')[0]
+			ax.set_title(title)
+			s_color = 'r'
+		elif j == 1: #Decision tree for series colors
+			s_color = 'b'
+		elif j== 2:
+			s_color = 'g'
+		elif j == 3:
+			s_color = 'k'
+		elif j == 4:
+			s_color = 'c'
+		else:
+			s_color = 'm'
+		ax.plot_date(plotx, ploty, color = s_color, alpha = 1, marker = ".", markersize = 3,  label = s_label)
 		ax.set_xlabel(x_label)
 		ax.set_ylabel(y_label)
 		ax.set_ylim([yaxislow, yaxishigh])
@@ -71,8 +83,10 @@ for j in range(number_files):
 
 	if j == (number_files-1):
 		# Sets the tick labels diagonal so they fit easier.
-                fig.autofmt_xdate()
+                ax.legend()
+		fig.autofmt_xdate()
 		fig.tight_layout()
-		fig.savefig('plot.png')
+		output = filename + '.png'
+		fig.savefig(output)
 			
 		
