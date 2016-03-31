@@ -1,0 +1,241 @@
+Router ID = 202
+owner = 6161
+relationship = self
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6161    | US | arin     |            | COMCAST-6161 - Comcast Cable Communications,US
+interfaces =
+68.85.88.82
+68.85.106.161
+
+Neighbor ID = 246
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US (cust)
+interfaces = 69.241.8.150
+
+
+Neighbor ID = 245
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+69.241.8.114
+
+Neighbor ID = 247
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+3356    | US | arin     | 2000-03-10 | LEVEL3 - Level 3 Communications, Inc.,US (prov)
+interfaces =
+4.68.71.221
+
+Neighbor ID = 244
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+3       | US | arin     |            | MIT-GATEWAYS - Massachusetts Institute of Technology,US
+interfaces =
+107.0.92.246
+
+Neighbor ID = 249
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6983    | US | arin     | 2000-03-17 | ITCDELTA - Earthlink, Inc.,US
+interfaces =
+162.151.52.154
+
+Neighbor ID = 248
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6363    | US | arin     |            | ENTERASYS-NETWORKS - Enterasys Networks,US
+interfaces =
+68.85.69.242
+
+Neighbor ID = 251
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+15133   | US | arin     | 2007-03-19 | EDGECAST - EdgeCast Networks, Inc.,US
+interfaces =
+50.207.250.18
+
+
+----------------------------
+Router ID = 712
+owner = 6161
+relationship = self
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6161    | US | arin     |            | COMCAST-6161 - Comcast Cable Communications,US
+interfaces =
+68.86.82.6
+68.86.82.30
+
+neighbor routers:
+Neighbor ID = 713
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+50.242.148.110
+
+Neighbor ID = 714
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+16509   | US | arin     | 2000-05-04 | AMAZON-02 - Amazon.com, Inc.,US
+interfaces =
+50.242.148.106
+
+--------------------------------------
+---------------------------------------
+---------------------------------------
+Router ID = 795
+owner = 6161
+relationship = self
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6161    | US | arin     |            | COMCAST-6161 - Comcast Cable Communications,US
+interfaces =
+68.86.82.210
+
+Neighbor ID = 801
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+20940   | EU | ripencc  | 2001-07-10 | AKAMAI-ASN1 Akamai International B.V.,US
+interfaces =
+173.167.56.158
+
+Neighbor ID = 798
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+14153   | US | arin     | 2007-06-14 | EDGECAST-IR - EdgeCast Networks, Inc.,US
+interfaces =
+173.167.57.130
+
+Neighbor ID = 797
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+66.208.228.90
+
+Neighbor ID = 800
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+20115   | US | arin     | 2001-03-26 | CHARTER-NET-HKY-NC - Charter Communications,US
+interfaces =
+23.30.207.6
+
+Neighbor ID = 799
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+15133   | US | arin     | 2007-03-19 | EDGECAST - EdgeCast Networks, Inc.,US
+interfaces =
+173.167.57.22
+
+
+----------------------------------------------
+Router ID = 910
+owner = 6161
+relationship = self
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6161    | US | arin     |            | COMCAST-6161 - Comcast Cable Communications,US
+interfaces =
+68.86.83.18
+68.86.83.22
+
+Router ID = 911
+owner = 2906
+relationship = cust
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+50.242.149.70
+
+Neighbor ID = 918
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+22822   | US | arin     | 2001-11-28 | LLNW - Limelight Networks, Inc.,US
+interfaces =
+66.208.229.230
+
+Neighbor ID = 919
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+22822   | US | arin     | 2001-11-28 | LLNW - Limelight Networks, Inc.,US
+interfaces =
+66.208.232.50
+
+Neighbor ID = 916
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+20940   | EU | ripencc  | 2001-07-10 | AKAMAI-ASN1 Akamai International B.V.,US
+interfaces =
+66.208.233.66
+
+Neighbor ID = 911
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+50.242.149.70
+
+----------------------------------------------------
+---------------------------------------
+---------------------------------------
+---------------------------------------
+Router ID = 922
+owner = 6161
+relationship = self
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+6161    | US | arin     |            | COMCAST-6161 - Comcast Cable Communications,US
+interfaces =
+68.86.83.26
+68.86.88.10
+68.86.83.30
+68.86.88.14
+
+Neighbor ID = 924
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+50.242.149.70
+
+Neighbor ID = 934
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+22822   | US | arin     | 2001-11-28 | LLNW - Limelight Networks, Inc.,US
+interfaces =
+66.208.232.50
+
+Neighbor ID = 923
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+2906    | US | arin     | 2009-09-02 | AS-SSI - Netflix Streaming Services Inc.,US
+interfaces =
+50.242.149.62
+
+Neighbor ID = 929
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+17035   | US | arin     | 2000-07-17 | NBCUNI-17035 - NBCUniversal,US
+interfaces =
+66.208.228.86
+
+Neighbor ID = 933
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+22822   | US | arin     | 2001-11-28 | LLNW - Limelight Networks, Inc.,US
+interfaces =
+66.208.229.230
+Neighbor ID = 930
+
+Neighbor ID = 931
+Warning: RIPE flags used with a traditional server.
+AS      | CC | Registry | Allocated  | AS Name
+20940   | EU | ripencc  | 2001-07-10 | AKAMAI-ASN1 Akamai International B.V.,US
+interfaces =
+66.208.233.66
+
