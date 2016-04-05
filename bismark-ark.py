@@ -25,7 +25,7 @@ with open(input_file, 'rb') as f: #import file
             
     	#format data for sc_attach to read:
     	#ping -C <sum> -M <ttl> -c 1 <destination-ip>
-    	line = 'ping -C ' + icmp + ' -M ' + ttl + ' -c 1 ' + ip + '\n'
+    	line = 'ping -C ' + icmp + ' -m ' + ttl + ' -c 1 ' + ip + '\n'
     	g.write(line) # python will convert \n to os.linesep
             
 f.close() #close files
