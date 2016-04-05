@@ -70,6 +70,19 @@ for j in range(number_files):
 			s_color = 'c'
 		else:
 			s_color = 'm'
+		
+		mean = np.mean(ploty)
+		median = np.median(ploty)
+		first_quartile = np.percentile(ploty, 25)
+		third_quartile = np.percentile(ploty, 75)
+		top_one_percent = np.percentile(ploty, 99)
+		bottom_one_percent = np.percentile(ploty, 1)
+		print ('mean = ' + str(mean))
+		print ('median = ' + str(median))
+		print ('percentile  1 = ' + str(bottom_one_percent))
+		print ('percentile 25 = ' + str(first_quartile))
+		print ('percentile 75 = ' + str(third_quartile))
+		print ('percentile 99 = ' + str(top_one_percent))
 		ax.plot_date(plotx, ploty, color = s_color, alpha = 1, marker = ".", markersize = 3,  label = s_label)
 		ax.set_xlabel(x_label)
 		ax.set_ylabel(y_label)
