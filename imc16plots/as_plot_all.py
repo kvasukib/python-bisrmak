@@ -60,7 +60,7 @@ for j in range(number_files):
 		if j == 0: 
 			fig = plt.figure(1, figsize=(9, 6))
 			ax = fig.add_subplot(111)
-			title = filename.split('.')[0]
+			title = filename.split('.')[1]
 			ax.set_title(title)
 			s_color = 'r'
 		elif j == 1: #Decision tree for series colors
