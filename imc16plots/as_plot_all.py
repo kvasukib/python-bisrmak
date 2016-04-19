@@ -38,15 +38,15 @@ for j in range(number_files):
 	#Check for OS and IO errors
 	except OSError as o:
 		sys.stderr.write('bordermap file error: %s\n' % o)
-		return
+		#return
 
 	except IOError as i:
 		sys.stderr.write('File open failed: %s\n' % i)
-		return
+		#return
 	
 	except FileEmptyError as p:
         	sys.stderr.write('bordermap file error: %s\n' %p)
-        	return
+        	#return
 	
 	else:
 		sys.stderr.write('reading time series file %s\n' % filename)
@@ -118,7 +118,7 @@ for j in range(number_files):
                 ax.legend()
 		fig.autofmt_xdate()
 		fig.tight_layout()
-		output = filename + '.png'
+		output = filename + '.pdf'
 		fig.savefig(output)
 			
 		
