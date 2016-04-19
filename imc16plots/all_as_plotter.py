@@ -70,12 +70,14 @@ for j in range(len(routers)):
                         #check if it belongs to desired AS
                         if( int(t[k].owner) == asn ):
 
-                                #Get interfaces (IP) for those routers and append to file
+                                #Get far-end interfaces (IP) for those routers and append to file
                                 r = []
                                 r = list(t[k].interfaces)
 
                                 for l in range(len(r)):
-                                        if(r[l].star):
+				
+					#For Akamai, look at non-starred interfaces as well
+                                        if(r[l].star or asn == 20940):
                                                 far_ip_list.append(r[l].ip)
 						#mon.AS.dates.router_id.farN		
 						ip_file = file_prefix + str(routers[j].id) + ".far" + str((l+1))
