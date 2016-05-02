@@ -10,7 +10,6 @@ import subprocess
 from sets import Set
 from  myexceptions import *
 from bdrmap_parse import * 
-router_number = 0
 
 routers = []
 interface2rtr = {}
@@ -23,6 +22,10 @@ mon = str(sys.argv[3]) #Monitor name
 dates = str(sys.argv[4]) #dates in yyyymm format
 asname = str(sys.argv[5]) #AS name string
 
+#Specify directory to save output files.
+#Script will save at dir/mon_name/yyyymm
+file_path = '/project/comcast-ping/plots-agamerog/' + mon + '/' + dates + '/'
+filename = file_path + str(sys.argv[1])
 #parse bordermap output using Amogh's code
 #write routers in array of objects
 (routers,interface2rtr,interface2name) = read_bdrmap_file(filename)
@@ -87,7 +90,7 @@ for j in range(len(routers)):
 		#continue if at least one queary yields non-empty output
 		for m in range(len(far_ip_list)):
 			ip_formatted = str(far_ip_list[m])
-			ip_filename = str(far_filename_list[m])
+			ip_filename = file_path + str(far_filename_list[m])
 			g = open(ip_filename,'w+')
 			g.write(ip_formatted)
 			g.close()
@@ -115,7 +118,7 @@ for j in range(len(routers)):
 		for i in range(len(s)):
 			if(s[i].star):
 				ip_formatted = str(s[i].ip)
-				ip_filename = file_prefix + str(routers[j].id) + ".near" + str((i+1))
+				ip_filename = file_path + file_prefix + str(routers[j].id) + ".near" + str((i+1))
 				h = open(ip_filename,'w+')
 				h.write(ip_formatted)
 				h.close()
@@ -137,14 +140,15 @@ for j in range(len(routers)):
 	#if(1):
 		#extract filenames from arrays into char buffer. 
 		#then use as_plot_all.py to plot time-series
+		#which takes just the filename (no path information)
 		plotter = ''
 		for i in range(len(far_plotter_list)):
 			if i == 0:
-				plotter = plotter + str(far_plotter_list[i])
+				plotter = plotter + str(far_plotter_list[i]).split('/')[-1]
 			else:
-				plotter = plotter + ' ' + str(far_plotter_list[i])
+				plotter = plotter + ' ' + str(far_plotter_list[i]).split('/')[-1]
 		for i in range(len(near_plotter_list)):
-                       plotter = plotter + ' ' + str(near_plotter_list[i])
+                       plotter = plotter + ' ' + str(near_plotter_list[i]).split('/')[-1]
 		nothing = subprocess.check_output(["python","as_plot_all.py",plotter])
 		#print(plotter)
 		print(nothing)

@@ -7,6 +7,10 @@ import os
 import datetime as dt
 import matplotlib.dates as mdate
 
+#Specify directory to save output files.
+#Script will save at dir/mon_name/yyyymm
+path = '/project/comcast-ping/plots-agamerog/'
+
 x_label = 'Date and Time'
 y_label = 'rtt (ms)'
 yaxislow = 0
@@ -22,16 +26,18 @@ elif (number_files > 10):
 	sys.stderr.write('more than 10 files provided. Will plot first 10. files provided:')
 	sys.stderr.write(str(sys.argv[1]))
 	number_files = 10
-	
-	
 
 #Read all filenames provided
 for j in range(number_files): 
 	plotx = []
 	ploty = []
-
+	#Get information about file from inputs
 	filename = in_files.split(' ')[j]
 	s_label = filename.split('.')[-2]
+	month = filename.split('.')[-4]
+	monitor = filename.split('.')[0]
+	file_path = path + monitor + '/' + month + '/'
+	filename = file_path + in_files.split(' ')[j]
 	try:
 		f = open(filename, 'rb')#import file
 		
@@ -118,7 +124,9 @@ for j in range(number_files):
                 ax.legend()
 		fig.autofmt_xdate()
 		fig.tight_layout()
-		output = filename + '.pdf'
+		output = filename + '.png'
 		fig.savefig(output)
+		output = filename + '.pdf'
+                fig.savefig(output)
 			
 		
