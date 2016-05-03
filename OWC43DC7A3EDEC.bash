@@ -4,8 +4,8 @@ mon="OWC43DC7A3EDEC"
 if socket="$(ls /project/comcast-ping/sockets-bismark/ | grep $mon)"; then
 	#check if program running
 	#echo "cp 1"
-	if ! program="$(ps -aux | grep sc_bdrmap | grep OWC43DC7A3EDEC)"; then
-		echo "cp 1"
+	if ! program="$(ps -aux | grep sc_bdrmap | grep $mon)"; then
+		#echo "cp 1"
 		#no sc_bdrmap running. gzip warts, run bdrmap, update state
 		if [ "$(ls /project/comcast-ping/bdrmap-bismark/$mon/warts/ | grep *.warts | wc -l)" -gt 0 ]; then
 			gzip -f /project/comcast-ping/bdrmap-bismark/$mon/warts/*.warts;
@@ -13,11 +13,11 @@ if socket="$(ls /project/comcast-ping/sockets-bismark/ | grep $mon)"; then
 		if [ "$(ls /project/comcast-ping/bdrmap-bismark/$mon/warts/ | grep *.log | wc -l)" -gt 0 ]; then
 			gzip -f /project/comcast-ping/bdrmap-bismark/$mon/warts/*.log;
 		fi
-		echo "cp 2"
+		#echo "cp 2"
 		dat=`date +%s`
 		outfile=/project/comcast-ping/bdrmap-bismark/$mon/warts/${mon}.${dat}.bdrmap.warts
 		logfile=/project/comcast-ping/bdrmap-bismark/$mon/warts/${mon}.${dat}.bdrmap.log
-		echo "cp 3"
+		#echo "cp 3"
 		~/bdrmap/sc_bdrmap -a ~/plots/current.prefix2as -v ~/plots/siblings/${mon}.sibling.txt -x ~/plots/current.peering -R ~/sockets/${socket} -o $outfile > $logfile 2>&1 &
 		#echo $(pgrep -f ${mon}.sibling.txt) > /project/comcast-ping/sockets-bismark/state_files/$mon-pid
 		echo $socket > /project/comcast-ping/sockets-bismark/state_files/$mon-socket
@@ -26,7 +26,7 @@ if socket="$(ls /project/comcast-ping/sockets-bismark/ | grep $mon)"; then
 		if state="$(cat /project/comcast-ping/sockets-bismark/state_files/$mon-socket)"; then 
 			#diff socket file with current Unix socket
 			if [ "$state" != "$socket" ]; then
-				echo "cp 4"
+				#echo "cp 4"
 				#socket and file are different, kill existing bordermap process and start new
 				#update state files for pid and Unix socket. gzip any bordermap files. 
 				#(if socket and file are the same, do nothing)
