@@ -34,6 +34,7 @@ for j in range(number_files):
 	#Get information about file from inputs
 	filename = in_files.split(' ')[j]
 	s_label = filename.split('.')[-2]
+	s_label = s_label[:-1] #remove interface # from label
 	month = filename.split('.')[-4]
 	monitor = filename.split('.')[0]
 	file_path = path + monitor + '/' + month + '/'
@@ -107,7 +108,7 @@ for j in range(number_files):
 		f.write('\npercentile 25 = ' + str(first_quartile))
 		f.write('\npercentile 75 = ' + str(third_quartile))
 		f.write('\npercentile 99 = ' + str(top_one_percent))
-		ax.plot_date(plotx, ploty, color = s_color, alpha = 1, marker = ".", markersize = 3,  label = s_label)
+		ax.plot_date(plotx, ploty, color = s_color, alpha = 0.7, marker = ".", markersize = 3,  label = s_label)
 		ax.set_xlabel(x_label)
 		ax.set_ylabel(y_label)
 		ax.set_ylim([yaxislow, yaxishigh])
