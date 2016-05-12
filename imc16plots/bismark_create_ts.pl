@@ -56,7 +56,7 @@ foreach my $db_ts (@dbs)
     $samp_sel->execute();
     while (my @row=$samp_sel->fetchrow_array())
       {
-	if ( defined $row[0] && defined $row[1] && defined $src_ip  ) {
+	if ( defined $row[0] && defined $row[1] ) {
 		$src_ip = $id2ip{$row[0]};
 		$dst_ip = $id2ip{$row[1]};
 		next if (! defined $ips{$src_ip});
