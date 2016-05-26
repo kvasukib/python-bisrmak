@@ -45,7 +45,8 @@ for j in range(len(routers)):
 	proceed = 0 #booleans for non-empty output near and far side
 	far = 0
 	plot = 0
-
+	m = 0
+	i = 0
 	t = []
 	t = list(routers[j].neighbors)
 
@@ -59,8 +60,8 @@ for j in range(len(routers)):
 			r = []
 			r = list(t[k].interfaces)
 			for l in range(len(r)):
-				if(r[l].star):
-					proceed = 1
+				#if(r[l].star):
+				proceed = 1
 	
 	#look for desired interfaces and write to file
 	if(proceed):
@@ -80,15 +81,16 @@ for j in range(len(routers)):
                                 for l in range(len(r)):
 				
 					#For Akamai, look at non-starred interfaces as well
-                                        if(r[l].star or asn == 20940):
-                                                far_ip_list.append(r[l].ip)
-						#mon.AS.dates.router_id.farN		
-						ip_file = file_prefix + str(routers[j].id) + ".far" + str((l+1))
-						far_filename_list.append(ip_file)
+                                        #if(r[l].star or asn == 20940):
+					far_ip_list.append(r[l].ip)
+					#mon.AS.dates.router_id.farN		
+					ip_file = file_prefix + str(routers[j].id) + ".far" + str((l+1))
+					far_filename_list.append(ip_file)
 		#Now we query the database for those IP addresses in date range
 		#For that we need a text file with the IP address to query
 		#continue if at least one queary yields non-empty output
-		for m in range(len(far_ip_list)):
+		#for m in range(len(far_ip_list)):
+		while ( (m < len(far_ip_list)) and (not far)):
 			ip_formatted = str(far_ip_list[m])
 			ip_filename = file_path + str(far_filename_list[m])
 			g = open(ip_filename,'w+')
@@ -107,7 +109,8 @@ for j in range(len(routers)):
 				far_plotter_list.append(output_file)
 			else:
 				os.remove(ip_filename)
-	
+			m = m+1 #loop counter
+
 	#Look for interfaces on the near-end to plot
 	if(far):
 	#if(0):
@@ -115,26 +118,28 @@ for j in range(len(routers)):
 		s = []
 		s = list(routers[j].interfaces)
 		near_plotter_list = []
-		for i in range(len(s)):
-			if(s[i].star):
-				ip_formatted = str(s[i].ip)
-				ip_filename = file_path + file_prefix + str(routers[j].id) + ".near" + str((i+1))
-				h = open(ip_filename,'w+')
-				h.write(ip_formatted)
-				h.close()
-				#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
-				#print nothing
-				output = bytearray()
-				output = subprocess.check_output(["perl", "create_ts.pl", mon, ip_filename, dates])
-				if len(output) > 0:
-					plot = 1
-					output_file = ip_filename + ".ts"
-					f = open(output_file,'w+')
-					f.write(output)
-					f.close()
-					near_plotter_list.append(output_file)
-				else:
-					os.remove(ip_filename)
+		while (i < range(len(s)) and (not plot)):
+		#for i in range(len(s)):
+			#if(s[i].star):
+			ip_formatted = str(s[i].ip)
+			ip_filename = file_path + file_prefix + str(routers[j].id) + ".near" + str((i+1))
+			h = open(ip_filename,'w+')
+			h.write(ip_formatted)
+			h.close()
+			#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
+			#print nothing
+			output = bytearray()
+			output = subprocess.check_output(["perl", "create_ts.pl", mon, ip_filename, dates])
+			if len(output) > 0:
+				plot = 1
+				output_file = ip_filename + ".ts"
+				f = open(output_file,'w+')
+				f.write(output)
+				f.close()
+				near_plotter_list.append(output_file)
+			else:
+				os.remove(ip_filename)
+			i = i + 1
 	
 	if(plot):
 	#if(1):
