@@ -1,0 +1,1051 @@
+Script started on Thu 16 Jun 2016 03:04:19 PM PDT
+agamerog@beamer:~/pythoncode/python-bisrmak$ ps -aux | grep bdrmap | grep agamerog | wc -l[K[16Pscreen -r levelshift4ps -aux | grep bdrmap | grep agamerog | wc -l[Kps -aux | grep bdrmap | grep agamerog | wc -l[K[16Pscreen -r levelshift4ps -aux | grep bdrmap | grep agamerog | wc -l[Kpython processMonData.py > processMonData.log.txt
+^C^C^C^Cgzip: /project/comcast-ping/plots-agamerog/OWE8DE27B72366/201604/OWE8DE27B72366.1459433694.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWE8DE27B72366/201605/OWE8DE27B72366.1462238184.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OW744401937CAA/201603/OW744401937CAA.1458158607.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OW744401937CAA/201605/OW744401937CAA.1462183529.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWA021B7A9BE39/201603/OWA021B7A9BE39.1458160396.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWA021B7A9BE39/201605/OWA021B7A9BE39.1462326198.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWA021B7A9BE39/201606/OWA021B7A9BE39.1464707101.bdrmap.warts: No such file or directory
+^C^C^Cgzip: /project/comcast-ping/plots-agamerog/OWA021B7A9BF95/201603/OWA021B7A9BF95.1457081061.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWA021B7A9BF95/201605/OWA021B7A9BF95.1462183556.bdrmap.warts: No such file or directory
+c^C^Cgzip: /project/comcast-ping/plots-agamerog/OWC43DC79D8EBC/201603/OWC43DC79D8EBC.1457081476.bdrmap.warts: No such file or directory
+^C^Cgzip: /project/comcast-ping/plots-agamerog/OWC43DC79D8EBC/201605/OWC43DC79D8EBC.1462229661.bdrmap.warts: No such file or directory
+^CTraceback (most recent call last):
+  File "processMonData.py", line 156, in <module>
+    main()
+  File "processMonData.py", line 100, in main
+    'stat --format="%s" ' + bordermapDirName + wart, shell=True))[:-1])
+  File "/usr/lib/python2.7/subprocess.py", line 567, in check_output
+    output, unused_err = process.communicate()
+  File "/usr/lib/python2.7/subprocess.py", line 791, in communicate
+    stdout = _eintr_retry_call(self.stdout.read)
+  File "/usr/lib/python2.7/subprocess.py", line 476, in _eintr_retry_call
+    return func(*args)
+KeyboardInterrupt
+agamerog@beamer:~/pythoncode/python-bisrmak$ ^C
+agamerog@beamer:~/pythoncode/python-bisrmak$ ^C
+agamerog@beamer:~/pythoncode/python-bisrmak$ python processMonData.py > processMonData.log.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Ps -aux | grep bdrmap | grep agamerog | wc -l[K[16Pscreen -r levelshift4dmesg | grep sc_bdrmapremoted[1Pbdrmap[1Pscreen -r levelshift4ps -aux | grep bdrmap | grep agamerog | wc -lython processMonData.py > processMonData.log.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpython processMonData.py > processMonData.log.txt[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+OWC43DC7A3EDEC's wart files have been processed before
+OWE8DE27B72366's wart files have been processed before
+OW744401937CAA's wart files have been processed before
+OWA021B7A9BE39's wart files have been processed before
+OWA021B7A9BF95's wart files have been processed before
+OWC43DC79D8EBC's wart files have been processed before
+Wart file has not been processed before
+
+Processing OWC43DC7A3EE22's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing OWC43DC7A3F0D4's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OWE8DE27B708D2's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OWE8DE27B72513's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OW04A151A3102E's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing OWC43DC7A3EE34's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OW74440171A157's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OW2CB05D873788's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing OWC43DC7B0AE78's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing OW04A151A310A9's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+end
+Wart file has not been processed before
+
+Processing acc-gh's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing adl-au's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/adl-au.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/adl-au.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing ams5-nl's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing atl2-us's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/atl2-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/atl2-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing avl-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing aza-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bed3-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bed2-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bed-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bfi-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bjl-gm's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+end
+Wart file has not been processed before
+
+Processing bos2-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+end
+Wart file has not been processed before
+
+Processing bre-de's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing bre3-de's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/bre3-de.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/bre3-de.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing cld2-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing cmn2-ma's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing coo-bj's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing dar-tz's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing dkr-sn's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing gai-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+end
+Wart file has not been processed before
+
+Processing hla-za's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing igx-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing ith-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing jlp-fr's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jlp-fr.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jlp-fr.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing jnb-za's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jnb-za.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jnb-za.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jnb-za.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/jnb-za.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing kgl-rw's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing lex-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing los-ng's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing lpi2-se's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/lpi2-se.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/lpi2-se.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing mry-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing msy-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing mmx-se's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing mnz-us's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/mnz-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/mnz-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing nbo-ke's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+end
+Wart file has not been processed before
+
+Processing oak3-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+end
+Wart file has not been processed before
+
+Processing osl2-no's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing osl3-no's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing oua-bf's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing pao-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing psa-it's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/psa-it.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/psa-it.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing psa2-it's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/psa2-it.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/psa2-it.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing san2-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing san4-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing sin3-sg's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/sin3-sg.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/sin3-sg.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing tul-us's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/tul-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/tul-us.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing tul2-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing tnr-mg's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/tnr-mg.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+malformed -v /project/comcast-ping/plots-agamerog/siblings/tnr-mg.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/tnr-mg.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing wbu2-us's wart files
+
+gzip: /project/comcast-ping/plots-agamerog/wbu2-us/201508/wbu2-us.1440460641.bdrmap.warts.gz: unexpected end of file
+could not open /project/comcast-ping/plots-agamerog/wbu2-us/201508/wbu2-us.1440460641.bdrmap.warts: No such file or directory
+Compressing wart file
+gzip: /project/comcast-ping/plots-agamerog/wbu2-us/201508/wbu2-us.1440460641.bdrmap.warts: No such file or directory
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+d ÅdCompressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing wlg2-nz's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing wlg-nz's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing wvi-us's wart files
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201507
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201508
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201509
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201510
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201511
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201512
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201601
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201602
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201603
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201604
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+Wart file has not been processed before
+
+Processing yul-ca's wart files
+malformed -v /project/comcast-ping/plots-agamerog/siblings/yul-ca.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201605
+malformed -v /project/comcast-ping/plots-agamerog/siblings/yul-ca.sibling.txt: not a file or set of ASes
+Compressing wart file
+Moved wart file and used sc_bdrmap on wart file for time 201606
+end
+agamerog@beamer:~/pythoncode/python-bisrmak$ Åd[Kagamerog@beamer:~/pythoncode/python-bisrmak$ Åd[K[Kpython processMonData.py [Kless processMonData.py 
+[?1049h[?1h
