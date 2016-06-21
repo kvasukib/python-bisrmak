@@ -7,7 +7,7 @@ if ! program="$(ps -aux | grep sc_remoted | grep allowother)"; then
 	cd /home/agamerog/sockets; rm OW*
 	cd ~/scamper/bin
 	./sc_remoted -4 -P 31337 -U /project/comcast-ping/sockets-bismark/ -O allowother -O tka -O allowgroup >> $logfile 2>&1 &
-else
-	date
-	echo "running"
+#else
+	#date
+	#echo "running"
 fi 
