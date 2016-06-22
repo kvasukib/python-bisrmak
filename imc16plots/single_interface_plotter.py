@@ -160,6 +160,6 @@ if (file):
 			plotter = ''
 			plotter = plotter + str(far_plotter_list[0]).split('/')[-1]
 			plotter = plotter + ' ' + str(near_plotter_list[0]).split('/')[-1]
-			nothing = subprocess.check_output(["python","as_plot_all.py",plotter])
+			nothing = subprocess.check_output(["python","/home/agamerog/imc/as_plot_all.py",plotter])
 			#print(plotter)
 			print(nothing)
