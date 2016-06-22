@@ -1,6 +1,8 @@
 #script to print out routers and interfaces of a desired carrier
 #Oputput: routers (near and far end) and interfaces to AS
-#input: bordermap parsed file, desired AS number
+#input: bordermap parsed filename, asnumber, asname (examples below)
+#python single_interface_ploter.py <filename> <as_n> <as_name>
+#python single_interface_ploter.py mry-us.201512.router-blocks 2906 Netflix
 import sys
 import re
 import os
@@ -17,10 +19,11 @@ interface2name = {}
 
 #get filename and desired AS number from user
 filename = str(sys.argv[1])
-asn = int(sys.argv[2])#AS Number
-mon = str(sys.argv[3]) #Monitor name
-dates = str(sys.argv[4]) #dates in yyyymm format
-asname = str(sys.argv[5]) #AS name string
+asname = str(sys.argv[3]) #AS name string
+asn = int(sys.argv[2])
+
+mon = filename.split('.')[0] #Monitor name
+dates = filename.split('.')[1] #dates in yyyymm format
 
 #Specify directory to save output files.
 #Script will save at dir/mon_name/yyyymm
@@ -107,7 +110,7 @@ if (file):
 				#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
 				#print nothing
 				output = bytearray()
-				output = subprocess.check_output(["perl", "create_ts.pl", mon, ip_filename, dates])
+				output = subprocess.check_output(["perl", "/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
 				if len(output) > 0:
 					far = 1
 					output_file = ip_filename + ".ts"
