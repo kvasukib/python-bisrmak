@@ -140,7 +140,7 @@ if (file):
 				#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
 				#print nothing
 				output = bytearray()
-				output = subprocess.check_output(["perl", "create_ts.pl", mon, ip_filename, dates])
+				output = subprocess.check_output(["perl", "/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
 				if len(output) > 0:
 					plot = 1
 					output_file = ip_filename + ".ts"
@@ -163,4 +163,3 @@ if (file):
 			nothing = subprocess.check_output(["python","as_plot_all.py",plotter])
 			#print(plotter)
 			print(nothing)
-			
