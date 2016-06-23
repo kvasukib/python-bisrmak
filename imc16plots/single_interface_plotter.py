@@ -1,3 +1,4 @@
+#v1.0
 #script to print out routers and interfaces of a desired carrier
 #Oputput: routers (near and far end) and interfaces to AS
 #input: bordermap parsed filename, asnumber, asname (examples below)
@@ -160,6 +161,8 @@ if (file):
 			plotter = ''
 			plotter = plotter + str(far_plotter_list[0]).split('/')[-1]
 			plotter = plotter + ' ' + str(near_plotter_list[0]).split('/')[-1]
-			nothing = subprocess.check_output(["python","/home/agamerog/imc/as_plot_all.py",plotter])
+			try:
+				nothing = subprocess.check_output(["python","/home/agamerog/imc/as_plot_all.py",plotter])
+			except:
+				print("could not plot files " + plotter) 
 			#print(plotter)
-			print(nothing)

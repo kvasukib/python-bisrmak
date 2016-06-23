@@ -1,4 +1,5 @@
 import csv , matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from pylab import rcParams, figure, axes, pie, title, show
