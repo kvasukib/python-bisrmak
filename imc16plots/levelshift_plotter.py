@@ -1,5 +1,6 @@
-#usage: python as_plot_all.py "<file1.ts> <file2.ts> ... <file9.ts>"
-#outputs plots of files and some statistics in same folder (.png and .stats.txt)
+#usage: python levelshift_plotter.py "<near_end.ts> <far_end.ts> <near_end.ts.ls.txt> <far_end.ts.ls.txt>"
+#Plots time-series files and detected levelshifts. Used to calibrate levelshift -B and -L parameters
+#outputs plot with first filename and .levelshift.png extension
 import csv , matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -25,8 +26,8 @@ number_files = in_files.count(' ') + 1
 #Plots 1-6 time series files, latency vs. time
 if (number_files == 0):
 	sys.stderr.write('No files were provided\n') 
-elif (number_files > 10):
-	sys.stderr.write('more than 10 files provided. Will plot first 10. files provided:')
+elif (number_files > 4):
+	sys.stderr.write('more than 4 files provided. Will plot first 10. files provided:')
 	sys.stderr.write(str(sys.argv[1]))
 	number_files = 10
 
@@ -97,20 +98,6 @@ for j in range(number_files):
 		else:
 			s_color = 'maroon'
 		
-		mean = np.mean(ploty)
-		median = np.median(ploty)
-		first_quartile = np.percentile(ploty, 25)
-		third_quartile = np.percentile(ploty, 75)
-		top_one_percent = np.percentile(ploty, 99)
-		bottom_one_percent = np.percentile(ploty, 1)
-		stats_file = filename + '.stats.txt'
-		f = open(stats_file,'w+')
-		f.write('mean = ' + str(mean))
-		f.write('\nmedian = ' + str(median))
-		f.write('\npercentile  1 = ' + str(bottom_one_percent))
-		f.write('\npercentile 25 = ' + str(first_quartile))
-		f.write('\npercentile 75 = ' + str(third_quartile))
-		f.write('\npercentile 99 = ' + str(top_one_percent))
 		ax.plot_date(plotx, ploty, color = s_color, alpha = 0.7, marker = ".", markersize = 3,  label = s_label)
 		ax.set_xlabel(x_label)
 		ax.set_ylabel(y_label)
