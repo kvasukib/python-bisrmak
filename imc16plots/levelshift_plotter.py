@@ -1,6 +1,7 @@
-#usage: python levelshift_plotter.py "<near_end.ts> <far_end.ts> <near_end.ts.ls.txt> <far_end.ts.ls.txt>"
+#usage: python levelshift_plotter.py "<time_series_filename> <levelshift_filename>"
+#.ts and .out respectively
 #Plots time-series files and detected levelshifts. Used to calibrate levelshift -B and -L parameters
-#outputs plot with first filename and .levelshift.png extension
+#outputs plot with first filename and .out.png extension
 import csv , matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -13,8 +14,8 @@ import matplotlib.dates as mdate
 
 #Specify directory to save output files.
 #Script will save at dir/mon_name/yyyymm
-path = '/project/comcast-ping/plots-agamerog/'
-
+#path = '/project/comcast-ping/plots-agamerog/'
+path = ''
 x_label = 'Date and Time'
 y_label = 'rtt (ms)'
 yaxislow = 0
@@ -26,10 +27,10 @@ number_files = in_files.count(' ') + 1
 #Plots 1-6 time series files, latency vs. time
 if (number_files == 0):
 	sys.stderr.write('No files were provided\n') 
-elif (number_files > 4):
-	sys.stderr.write('more than 4 files provided. Will plot first 10. files provided:')
+elif (number_files > 2):
+	sys.stderr.write('more than 2 files provided. Will plot first 2. files provided:')
 	sys.stderr.write(str(sys.argv[1]))
-	number_files = 10
+	number_files = 2
 
 #Read all filenames provided
 for j in range(number_files): 
@@ -37,11 +38,19 @@ for j in range(number_files):
 	ploty = []
 	#Get information about file from inputs
 	filename = in_files.split(' ')[j]
-	s_label = filename.split('.')[-2]
-	s_label = s_label[:-1] #remove interface # from label
-	month = filename.split('.')[-4]
+	
+	#series labels
+	if j == 0: 
+		#s_label = filename.split('.')[-2]
+		#s_label = s_label[:-1] #remove interface # from label
+		s_label = 'time-series'
+	else:
+		s_label = 'levelshift'
+
+	month = filename.split('.')[2]
 	monitor = filename.split('.')[0]
-	file_path = path + monitor + '/' + month + '/'
+	#file_path = path + monitor + '/' + month + '/'
+	file_path = ''
 	filename = file_path + in_files.split(' ')[j]
 	try:
 		f = open(filename, 'rb')#import file
@@ -61,13 +70,21 @@ for j in range(number_files):
 	
 	else:
 		sys.stderr.write('reading time series file %s\n' % filename)
-                reader = csv.reader(f, delimiter=' ') #read file into variable reader
-
+		if j == 0: #space-separated file
+                	reader = csv.reader(f, delimiter=' ') #read file into variable reader
+		else: 
+			reader = csv.reader(f, delimiter='	')
 		#Read values from file
 		for row in reader: 
 			secs = mdate.epoch2num(float(row[0]))
-			#x = time.gmtime(float(row[0])) #timestamps
-			y = (int(row[4]))/10 #file has ms*10		
+			
+			#First file with time-series
+			if j == 0: 
+				y = (int(row[4]))/10 #file has ms*10
+			
+			#Second file with levelshifts 
+			else:
+				y = (abs(int(float(row[2]))))*10 #to use same vertical axis 		
 			plotx.append(secs)
 			ploty.append(y)
 
@@ -81,24 +98,10 @@ for j in range(number_files):
 			s_color = 'r'
 		elif j == 1: #Decision tree for series colors
 			s_color = 'b'
-		elif j == 2:
-			s_color = 'g'
-		elif j == 3:
-			s_color = 'k'
-		elif j == 4:
-			s_color = 'c'
-		elif j == 5:
-			s_color = 'm'
-		elif j == 6:
-			s_color = 'darkolivegreen'
-		elif j == 7:
-                        s_color = 'gray'
-		elif j == 8:
-                        s_color = 'hotpink'
-		else:
-			s_color = 'maroon'
 		
-		ax.plot_date(plotx, ploty, color = s_color, alpha = 0.7, marker = ".", markersize = 3,  label = s_label)
+		#bigger marker for levelshift
+		ax.plot_date(plotx, ploty, color = s_color, alpha = 0.7, \
+			marker = ".", markersize = (j*5+3),  label = s_label) 
 		ax.set_xlabel(x_label)
 		ax.set_ylabel(y_label)
 		ax.set_ylim([yaxislow, yaxishigh])

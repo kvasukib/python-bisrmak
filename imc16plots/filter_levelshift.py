@@ -1,0 +1,86 @@
+#usage: python levelshift_plotter.py <far_end_levelshift_filename> <near_levelshift_filename>
+#.out files
+#Filters far-end levelshifts with overlapping windows
+#Deletes input files if less than two valid levelshifts found
+import csv
+import numpy as np
+import sys
+import os
+processed = 0 #boolean to determine whether or not a file has been processed 
+number_files = 2
+filter_window = 1800 #number of seconds on either side
+#Read all filenames provided
+far = []
+near = []
+
+#for loop discards values of levelshift on far-side with 
+#a corresponding shift on the near-side within 30 mins
+#on either side
+
+for j in range(number_files):
+	#Get information about file from inputs
+	far_filename = str(sys.argv[1])
+	near_filename = str(sys.argv[2])
+	#Probably remove the below once successful run 
+	#month = filename.split('.')[2]
+	#monitor = filename.split('.')[0]
+	#file_path = path + monitor + '/' + month + '/'
+	file_path = ''
+	if j == 0:
+		filename = far_filename
+	else:
+		filename = near_filename
+
+	try:
+		f = open(filename, 'rb')#import file	
+	#Check for OS and IO errors
+	except OSError as o:
+		sys.stderr.write('levelshift file error: %s\n' % o)
+	except IOError as i:
+		sys.stderr.write('File open failed: %s\n' % i)
+	except FileEmptyError as p:
+        	sys.stderr.write('levelshift file error: %s\n' %p)
+	else:
+		sys.stderr.write('reading levelshift file %s\n' % filename)
+		reader = csv.reader(f, delimiter='	')
+		if j == 0:
+			processed = 1
+		#Read values from file
+		for row in reader: 
+			#File has far-end timestamps
+			if j == 0: 
+				far.append(float(row[0]))#save raw timestamp	
+			#Second file with levelshifts 
+			else:
+				near.append(float(row[0]))
+		#print "initial number of values:"
+		#print len(far)
+		if (len(far) > 0 and len(near) > 0):
+			for i in (range(len(far)-1)):
+				discard = 0
+				lower = far[i] - filter_window
+				upper = far[i] + filter_window
+				for k in range(len(near)):
+					if (near[k] > lower and near[k] < upper):
+						discard = 1
+						#print "near = " + str(near[k])
+						#print "far = " + str(far[i])
+				if discard == 1:
+					del far[i]
+					#print "discarding value"
+
+#Determine action to do on file depending on how many levelshifts 
+#dtected (as long as the far-end file was read correctly)
+
+if(processed): 	
+	if (len(far) < 2):
+		print "no valid levelshift, removing files"
+		os.remove(far_filename)
+		os.remove(near_filenamea)
+	elif (len(far) < 8):
+		print "some valid levelshifts, removing files"
+	else:
+		print "potential congestion, adding files to priority list"
+		#print "number of values left: "
+		#print len(far)
+	
