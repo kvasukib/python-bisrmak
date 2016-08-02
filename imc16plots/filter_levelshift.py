@@ -79,7 +79,7 @@ if(processed):
 	if (len(far) < 2):
 		sys.stderr.write('no valid levelshift, REMOVING files\n')
 		os.remove(far_filename)
-		os.remove(near_filenamea)
+		os.remove(near_filename)
 	elif (len(far) < 8):
 		sys.stderr.write('some valid levelshifts, KEEPING files\n')
 	else:
