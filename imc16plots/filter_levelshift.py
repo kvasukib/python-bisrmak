@@ -12,7 +12,7 @@ filter_window = 1800 #number of seconds on either side
 #Read all filenames provided
 far = []
 near = []
-
+priority = '/project/comcast-ping/plots-agamerog/priority_files.txt'
 #for loop discards values of levelshift on far-side with 
 #a corresponding shift on the near-side within 30 mins
 #on either side
@@ -32,14 +32,17 @@ for j in range(number_files):
 		filename = near_filename
 
 	try:
-		f = open(filename, 'rb')#import file	
+		f = open(filename, 'r+')#import file	
 	#Check for OS and IO errors
 	except OSError as o:
 		sys.stderr.write('levelshift file error: %s\n' % o)
+		f.close
 	except IOError as i:
 		sys.stderr.write('File open failed: %s\n' % i)
+		f.close
 	except FileEmptyError as p:
         	sys.stderr.write('levelshift file error: %s\n' %p)
+		f.close
 	else:
 		sys.stderr.write('reading levelshift file %s\n' % filename)
 		reader = csv.reader(f, delimiter='	')
@@ -68,19 +71,25 @@ for j in range(number_files):
 				if discard == 1:
 					del far[i]
 					#print "discarding value"
-
+		f.close
 #Determine action to do on file depending on how many levelshifts 
 #dtected (as long as the far-end file was read correctly)
 
 if(processed): 	
 	if (len(far) < 2):
-		print "no valid levelshift, removing files"
+		sys.stderr.write('no valid levelshift, REMOVING files\n')
 		os.remove(far_filename)
 		os.remove(near_filenamea)
 	elif (len(far) < 8):
-		print "some valid levelshifts, removing files"
+		sys.stderr.write('some valid levelshifts, KEEPING files\n')
 	else:
-		print "potential congestion, adding files to priority list"
+		sys.stderr.write('potential congestion, adding files to priority list\n')
+		g = open(priority, 'a')
+		g.write(far_filename)
+		g.write('\n')
+		g.write(near_filename)
+		g.write('\n')
+		g.close
 		#print "number of values left: "
 		#print len(far)
 	
