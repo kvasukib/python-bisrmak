@@ -61,8 +61,12 @@ for j in range(number_files):
 		if (len(far) > 0 and len(near) > 0):
 			for i in (range(len(far)-1)):
 				discard = 0
-				lower = far[i] - filter_window
-				upper = far[i] + filter_window
+				try:
+					lower = far[i] - filter_window
+					upper = far[i] + filter_window
+				except IndexError:
+					lower = 9999999999
+					upper = 9999999999 #If index error, ensure algorithm ignores value
 				for k in range(len(near)):
 					if (near[k] > lower and near[k] < upper):
 						discard = 1
