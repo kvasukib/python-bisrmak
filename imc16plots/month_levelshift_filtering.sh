@@ -5,5 +5,5 @@ for i in `cat /tmp/far_list.txt`;
 do
 ID="$(echo $i | awk -F"." '{print $4}')"
 NEAR="$(ls *near*out | grep $ID)"
-python ~/imc/filter_levelshift.py $i $NEAR 
+python /home/agamerog/pythoncode/python-bisrmak/imc16plots/filter_levelshift.py $i $NEAR 
 done

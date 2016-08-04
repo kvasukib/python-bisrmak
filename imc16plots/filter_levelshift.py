@@ -1,7 +1,7 @@
 #usage: python levelshift_plotter.py <far_end_levelshift_filename> <near_levelshift_filename>
 #.out files
 #Filters far-end levelshifts with overlapping windows
-#Deletes input files if less than two valid levelshifts found
+#Flags files with at least 8 levelshifts for further processing
 import csv
 import numpy as np
 import sys
@@ -80,14 +80,10 @@ for j in range(number_files):
 #dtected (as long as the far-end file was read correctly)
 
 if(processed): 	
-	if (len(far) < 2):
-		sys.stderr.write('no valid levelshift, REMOVING files\n')
-		os.remove(far_filename)
-		os.remove(near_filename)
-	elif (len(far) < 8):
-		sys.stderr.write('some valid levelshifts, KEEPING files\n')
+	if (len(far) < 8):
+		sys.stderr.write('Less than 8 shifts. Ignoring.\n')
 	else:
-		sys.stderr.write('potential congestion, adding files to priority list\n')
+		sys.stderr.write('Potential congestion, adding files to priority list\n')
 		g = open(priority, 'a')
 		g.write(far_filename)
 		g.write('\n')
