@@ -12,7 +12,7 @@ filter_window = 900 #number of seconds on either side
 #Read all filenames provided
 far = []
 near = []
-priority = '/project/comcast-ping/plots-agamerog/priority_files.txt'
+priority = '/project/comcast-ping/plots-agamerog/priority_files_weekly.txt'
 #for loop discards values of levelshift on far-side with 
 #a corresponding shift on the near-side within 30 mins
 #on either side
@@ -80,8 +80,8 @@ for j in range(number_files):
 #dtected (as long as the far-end file was read correctly)
 
 if(processed): 	
-	if (len(far) < 8):
-		sys.stderr.write('Less than 8 shifts. Ignoring.\n')
+	if (len(far) < 2):
+		sys.stderr.write('Less than 2 shifts. Ignoring.\n')
 	else:
 		sys.stderr.write('Potential congestion, adding files to priority list\n')
 		g = open(priority, 'a')
