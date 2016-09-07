@@ -71,7 +71,7 @@ for j in range(number_files):
 			#if there is a near-side to filter with, filter for overlapping window
 			#otherwise, just dump far-end file into output
 			#print "cp1"
-			for i in (range(len(far)-1)):
+			for i in (range(len(far))):
 				if (near_nonempty):
 					discard = 0
 					try:

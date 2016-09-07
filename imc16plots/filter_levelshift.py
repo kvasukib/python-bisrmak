@@ -60,7 +60,7 @@ for j in range(number_files):
 		#print len(far)
 		if (len(far) > 0 and len(near) > 0):
 			processed = 1
-			for i in (range(len(far)-1)):
+			for i in (range(len(far))):
 				discard = 0
 				try:
 					lower = far[i] - filter_window
