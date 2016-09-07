@@ -46,8 +46,8 @@ for j in range(number_files):
 	else:
 		sys.stderr.write('reading levelshift file %s\n' % filename)
 		reader = csv.reader(f, delimiter='	')
-		if j == 0:
-			processed = 1
+		#if j == 0:
+			#processed = 1
 		#Read values from file
 		for row in reader: 
 			#File has far-end timestamps
@@ -59,6 +59,7 @@ for j in range(number_files):
 		#print "initial number of values:"
 		#print len(far)
 		if (len(far) > 0 and len(near) > 0):
+			processed = 1
 			for i in (range(len(far)-1)):
 				discard = 0
 				try:
