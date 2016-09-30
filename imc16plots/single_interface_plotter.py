@@ -2,8 +2,8 @@
 #script to print out routers and interfaces of a desired carrier
 #Oputput: routers (near and far end) and interfaces to AS
 #input: bordermap parsed filename, asnumber, asname (examples below)
-#python single_interface_ploter.py <filename> <as_n> <as_name>
-#python single_interface_ploter.py mry-us.201512.router-blocks 2906 Netflix
+#python single_interface_plotter.py <filename> <as_n> <as_name>
+#python single_interface_plotter.py mry-us.201512.router-blocks 2906 Netflix
 import sys
 import re
 import os
@@ -61,7 +61,10 @@ if (file):
 		i = 0
 		t = []
 		t = list(routers[j].neighbors)
-
+		#CP1 GET NEAR INTERFACE FROM routers[j]
+		#if owner IS NOT the network of the VP, then discard measurement
+		#otherwise, look for starred interface on the near-side as below.
+		
 		#crawl list of neighbors looking for desired AS
 		for k in range(len(t)):
 		#look for neighbor routers owned by desired AS
@@ -72,8 +75,8 @@ if (file):
 				r = []
 				r = list(t[k].interfaces)
 				for l in range(len(r)):
-					#if(r[l].star):
-					proceed = 1
+					if(r[l].star):
+						proceed = 1
 		
 		#look for desired interfaces and write to file
 		if(proceed):
@@ -94,13 +97,28 @@ if (file):
 					
 						#For Akamai, look at non-starred interfaces as well
 						#if(r[l].star or asn == 20940):
-						far_ip_list.append(r[l].ip)
-						#mon.AS.dates.router_id.farN		
-						ip_file = file_prefix + str(routers[j].id) + ".far" + str((l+1))
-						far_filename_list.append(ip_file)
+						#add each far IP address only once:
+						if r[l].ip not in far_ip_list:
+							far_ip_list.append(r[l].ip)
+							#Use IP address in format AAABBBCCCDDD (force left zeroes)
+							IP = str(r[l].ip)
+							A = (IP.split(".")[0]).zfill(3) 
+							B = (IP.split(".")[1]).zfill(3)
+							C = (IP.split(".")[2]).zfill(3)
+							D = (IP.split(".")[3]).zfill(3)
+							far_ip = A + B + C + D
+							#filename format: mon.AS.dates.router_id.farN		
+							ip_file = file_prefix + far_ip + ".far"
+							far_filename_list.append(ip_file)
+			
+			#NEED TO DO: obtain near interface using CP1
+			#for each far interface stored above. Then create timeseries fi_
+			#les for both. Store near IP first, then check if far-side query
+			#is empty with code immediately below this comment. 
+
 			#Now we query the database for those IP addresses in date range
 			#For that we need a text file with the IP address to query
-			#continue if at least one queary yields non-empty output
+			#continue if at least one query yields non-empty output
 			#for m in range(len(far_ip_list)):
 			while ( (m < len(far_ip_list)) and (not far)):
 				ip_formatted = str(far_ip_list[m])
