@@ -32,15 +32,16 @@ file_path = '/project/comcast-ping/plots-agamerog/' + mon + '/' + dates + '/'
 filename = file_path + str(sys.argv[1])
 #parse bordermap output using Amogh's code
 #write routers in array of objects
-file = 0 #boolean for file errors 
+file_read = 0 #boolean for file errors 
 try:
 	(routers,interface2rtr,interface2name) = read_bdrmap_file(filename)
-	file = 1
+	file_read = 1
 except OSError or FileEmptyError or FileEmptyError or IOError:
-	file = 0
+	file_read = 0
 	print ("error opening file: " + filename)
 
 proceed = 0 #boolean to store whether or not VP router is connected to desired AS
+non_empty_near_end = 0
 
 far_plotting_list = []
 far = 0 #boolean - non-empty far-side interface files
@@ -51,7 +52,21 @@ file_prefix = mon + "." + str(asname) + "." + dates + "."
 #               temp = j
 #for j in range(500):
 
-if (file):	 
+#need to change the loop below for checking if asn is in sibling
+#file... int(routers[loop_counter].owner) is in <list_with_AS_siblings>
+#siblings files are stored in /project/comcast-ping/TSP/adaptive/siblings
+#filenames: mon_name.sibling.txt 
+
+if (file_read):
+	t = []
+	non_empty_near_end = 0
+	#first find all the near-end routers
+	for loop_counter in range(len(routers)):
+		if routers[loop_counter].rel == "self":
+			t.append(routers[loop_counter])	
+			non_empty_near_end = 1
+ 
+if(non_empty_near_end):	 
 	for j in range(len(routers)):
 		#t has list of neighbor router objects
 		proceed = 0 #booleans for non-empty output near and far side
@@ -59,8 +74,8 @@ if (file):
 		plot = 0
 		m = 0
 		i = 0
-		t = []
-		t = list(routers[j].neighbors)
+		#t = []
+		#t = list(routers[j].neighbors)
 		#CP1 GET NEAR INTERFACE FROM routers[j]
 		#if owner IS NOT the network of the VP, then discard measurement
 		#otherwise, look for starred interface on the near-side as below.
@@ -152,7 +167,7 @@ if (file):
 			#for i in range(len(s)):
 				#if(s[i].star):
 				ip_formatted = str(s[i].ip)
-				ip_filename = file_path + file_prefix + str(routers[j].id) + ".near" + str((i+1))
+				ip_filename = file_path + file_prefix + far_ip + ".near" + str((i+1))
 				h = open(ip_filename,'w+')
 				h.write(ip_formatted)
 				h.close()
@@ -176,6 +191,7 @@ if (file):
 			#extract first filenames from arrays into char buffer. 
 			#then use as_plot_all.py to plot time-series
 			#which takes just the filename (no path information)
+			#only the first near-interface found will be plotted
 			plotter = ''
 			plotter = plotter + str(far_plotter_list[0]).split('/')[-1]
 			plotter = plotter + ' ' + str(near_plotter_list[0]).split('/')[-1]
