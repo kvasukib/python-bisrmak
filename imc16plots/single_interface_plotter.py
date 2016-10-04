@@ -13,6 +13,7 @@ import subprocess
 from sets import Set
 from  myexceptions import *
 from bdrmap_parse import * 
+from siblings_AS_verifier import *
 
 routers = []
 interface2rtr = {}
@@ -33,12 +34,6 @@ filename = file_path + str(sys.argv[1])
 #parse bordermap output using Amogh's code
 #write routers in array of objects
 file_read = 0 #boolean for file errors 
-try:
-	(routers,interface2rtr,interface2name) = read_bdrmap_file(filename)
-	file_read = 1
-except OSError or FileEmptyError or FileEmptyError or IOError:
-	file_read = 0
-	print ("error opening file: " + filename)
 
 proceed = 0 #boolean to store whether or not VP router is connected to desired AS
 non_empty_near_end = 0
@@ -46,7 +41,16 @@ non_empty_near_end = 0
 far_plotting_list = []
 far = 0 #boolean - non-empty far-side interface files
 file_prefix = mon + "." + str(asname) + "." + dates + "."
-
+#File for storing interfaces from router-blocks
+summary_filename = file_path + mon + "." + str(asname) + "." + dates + ".interfaces.txt" 
+try:
+        (routers,interface2rtr,interface2name) = read_bdrmap_file(filename)
+        file_read = 1
+	os.remove(summary_filename)
+except OSError or FileEmptyError or FileEmptyError or IOError:
+        file_read = 0
+        print ("error opening file: " + filename)
+summary_file = open(summary_filename, 'a+') 
 #cycles for troubleshooting
 #       if(int(routers[j].id)==712):
 #               temp = j
@@ -58,34 +62,37 @@ file_prefix = mon + "." + str(asname) + "." + dates + "."
 #filenames: mon_name.sibling.txt 
 
 if (file_read):
-	t = []
+	near_ends = []
 	non_empty_near_end = 0
 	#first find all the near-end routers
 	for loop_counter in range(len(routers)):
-		if routers[loop_counter].rel == "self":
-			t.append(routers[loop_counter])	
+		router_owner = int(routers[loop_counter].owner)
+		if as_verifier(router_owner,mon) == 1:
+			near_ends.append(routers[loop_counter])	
 			non_empty_near_end = 1
  
 if(non_empty_near_end):	 
-	for j in range(len(routers)):
+	for j in range(len(near_ends)):
 		#t has list of neighbor router objects
 		proceed = 0 #booleans for non-empty output near and far side
 		far = 0
 		plot = 0
 		m = 0
 		i = 0
-		#t = []
-		#t = list(routers[j].neighbors)
+		t = []
+		t = list(near_ends[j].neighbors)
 		#CP1 GET NEAR INTERFACE FROM routers[j]
 		#if owner IS NOT the network of the VP, then discard measurement
 		#otherwise, look for starred interface on the near-side as below.
 		
 		#crawl list of neighbors looking for desired AS
+		#print "CP3"
+		
 		for k in range(len(t)):
 		#look for neighbor routers owned by desired AS
 		#for those routers, look for starred interfaces
 		#if at least one starred present, continue 
-			#print(t[k].owner)
+
 			if( int(t[k].owner) == asn): 
 				r = []
 				r = list(t[k].interfaces)
@@ -115,6 +122,9 @@ if(non_empty_near_end):
 						#add each far IP address only once:
 						if r[l].ip not in far_ip_list:
 							far_ip_list.append(r[l].ip)
+							print r[l].ip
+							summary_file.write(str(r[l].ip))
+							summary_file.write("\n")
 							#Use IP address in format AAABBBCCCDDD (force left zeroes)
 							IP = str(r[l].ip)
 							A = (IP.split(".")[0]).zfill(3) 
@@ -161,7 +171,7 @@ if(non_empty_near_end):
 		#if(0):
 			#s has list of interfaces of near-side router
 			s = []
-			s = list(routers[j].interfaces)
+			s = list(near_ends[j].interfaces)
 			near_plotter_list = []
 			while (i < range(len(s)) and (not plot)):
 			#for i in range(len(s)):

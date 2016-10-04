@@ -14,7 +14,9 @@ from multiprocessing import Pool
 #
 # Dictionary used for remembering ASNs for AS's
 ASNs = { 'Netflix':2906, 'Google':15169, 'Akamai':20940, 'Cogent':174, \
-'Level3':3356, 'Tata':6453 }
+'Level3':3356, 'Tata':6453, 'Microsoft':8075, 'Limelight':22822, 'Amazon':16509, \
+'Apple':714, 'Hulu':23286, 'Facebook':32934, 'Twitch':46489, 'Highwinds':33438, \
+'NTT':2914, 'GTT':3257, 'Zayo':6461, 'Savvis':3561, 'HE':6939, 'XO':2828, 'Telia':1299 }
 #
 # List that contains the names of all the Bismark Monitors
 bMonitors = [ 'OWC43DC7A3EDEC', 'OWE8DE27B72366', 'OW744401937CAA', \
@@ -66,14 +68,17 @@ plotsAgamerogDir + monitor + '/*/*.router-blocks', shell=True)).split('\n')
 	myPool = Pool(15)
 	commandsList = []
 	for block in routerBlocks:
-		if '201607' not in block:
-			continue
+		#if '201607' not in block:
+			#continue
 		splitted = block.split('/')
 		fileName = splitted[6]
 		for AS in ASNs:
 			commandsList.append('python ' + interfacePlotterDir + \
 'single_interface_plotter.py ' + fileName + ' ' + str(ASNs[AS]) + \
 ' ' + AS)
+			#print ('python ' + interfacePlotterDir + \
+#'single_interface_plotter.py ' + fileName + ' ' + str(ASNs[AS]) + \
+#' ' + AS)
 
 	print 'Converting router-blocks to .ts files...'
 	myPool.map(os.system, commandsList)
