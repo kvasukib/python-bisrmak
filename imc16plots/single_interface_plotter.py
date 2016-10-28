@@ -19,6 +19,13 @@ routers = []
 interface2rtr = {}
 interface2name = {}
 
+far_filename_list = []
+far_plotter_list = []
+far_plotting_list = []
+far_ip_list = []
+far_filename_list = []
+far_plotter_list = []
+far_ip_tags = []
 #get filename and desired AS number from user
 filename = str(sys.argv[1])
 asname = str(sys.argv[3]) #AS name string
@@ -51,15 +58,7 @@ except OSError or FileEmptyError or FileEmptyError or IOError:
         file_read = 0
         print ("error opening file: " + filename)
 summary_file = open(summary_filename, 'a+') 
-#cycles for troubleshooting
-#       if(int(routers[j].id)==712):
-#               temp = j
-#for j in range(500):
 
-#need to change the loop below for checking if asn is in sibling
-#file... int(routers[loop_counter].owner) is in <list_with_AS_siblings>
-#siblings files are stored in /project/comcast-ping/TSP/adaptive/siblings
-#filenames: mon_name.sibling.txt 
 
 if (file_read):
 	near_ends = []
@@ -73,6 +72,7 @@ if (file_read):
  
 if(non_empty_near_end):	 
 	for j in range(len(near_ends)):
+		far_ip_tags = [] #this list needs resetting per router
 		#t has list of neighbor router objects
 		proceed = 0 #booleans for non-empty output near and far side
 		far = 0
@@ -81,13 +81,7 @@ if(non_empty_near_end):
 		i = 0
 		t = []
 		t = list(near_ends[j].neighbors)
-		#CP1 GET NEAR INTERFACE FROM routers[j]
-		#if owner IS NOT the network of the VP, then discard measurement
-		#otherwise, look for starred interface on the near-side as below.
-		
-		#crawl list of neighbors looking for desired AS
-		#print "CP3"
-		
+	
 		for k in range(len(t)):
 		#look for neighbor routers owned by desired AS
 		#for those routers, look for starred interfaces
@@ -102,9 +96,7 @@ if(non_empty_near_end):
 		
 		#look for desired interfaces and write to file
 		if(proceed):
-			far_ip_list = []
-			far_filename_list = []
-			far_plotter_list = []
+	
 			for k in range(len(t)):
 
 				#for all neighbor routers
@@ -116,10 +108,6 @@ if(non_empty_near_end):
 					r = list(t[k].interfaces)
 
 					for l in range(len(r)):
-					
-						#For Akamai, look at non-starred interfaces as well
-						#if(r[l].star or asn == 20940):
-						#add each far IP address only once:
 						if r[l].ip not in far_ip_list:
 							far_ip_list.append(r[l].ip)
 							print r[l].ip
@@ -134,36 +122,40 @@ if(non_empty_near_end):
 							far_ip = A + B + C + D
 							#filename format: mon.AS.dates.router_id.farN		
 							ip_file = file_prefix + far_ip + ".far"
+							far_ip_tags.append(far_ip)
 							far_filename_list.append(ip_file)
 			
-			#NEED TO DO: obtain near interface using CP1
-			#for each far interface stored above. Then create timeseries fi_
-			#les for both. Store near IP first, then check if far-side query
-			#is empty with code immediately below this comment. 
-
 			#Now we query the database for those IP addresses in date range
 			#For that we need a text file with the IP address to query
 			#continue if at least one query yields non-empty output
 			#for m in range(len(far_ip_list)):
-			while ( (m < len(far_ip_list)) and (not far)):
-				ip_formatted = str(far_ip_list[m])
+			while ( (m < len(far_ip_list))):
+				#verify if file has been queried already. If so, ignore.
 				ip_filename = file_path + str(far_filename_list[m])
-				g = open(ip_filename,'w+')
-				g.write(ip_formatted)
-				g.close()
-				#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
-				#print nothing
-				output = bytearray()
-				output = subprocess.check_output(["perl", "/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
-				if len(output) > 0:
-					far = 1
-					output_file = ip_filename + ".ts"
-					f = open(output_file,'w+')
-					f.write(output)
-					f.close()
-					far_plotter_list.append(output_file)
-				else:
-					os.remove(ip_filename)
+				output_file = ip_filename + ".ts"
+				try:
+        				file_present = subprocess.check_call(["ls", output_file])
+        				print "file already present, ignoring"
+				except:
+        				print "file NOT present, querying"
+					ip_formatted = str(far_ip_list[m])
+					g = open(ip_filename,'w+')
+					g.write(ip_formatted)
+					g.close()
+					#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
+					#print nothing
+					output = bytearray()
+					output = subprocess.check_output(["perl", \
+"/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
+					if len(output) > 0:
+						far = 1
+						output_file = ip_filename + ".ts"
+						f = open(output_file,'w+')
+						f.write(output)
+						f.close()
+						far_plotter_list.append(output_file)
+					else:
+						os.remove(ip_filename)
 				m = m+1 #loop counter
 
 		#Look for interfaces on the near-end to plot
@@ -173,28 +165,53 @@ if(non_empty_near_end):
 			s = []
 			s = list(near_ends[j].interfaces)
 			near_plotter_list = []
-			while (i < range(len(s)) and (not plot)):
-			#for i in range(len(s)):
-				#if(s[i].star):
-				ip_formatted = str(s[i].ip)
-				ip_filename = file_path + file_prefix + far_ip + ".near" + str((i+1))
-				h = open(ip_filename,'w+')
-				h.write(ip_formatted)
-				h.close()
-				#nothing = subprocess.call(["echo", ip_formatted, ">", str(far_filename_list[m])])
-				#print nothing
-				output = bytearray()
-				output = subprocess.check_output(["perl", "/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
-				if len(output) > 0:
-					plot = 1
-					output_file = ip_filename + ".ts"
-					f = open(output_file,'w+')
-					f.write(output)
-					f.close()
-					near_plotter_list.append(output_file)
-				else:
-					os.remove(ip_filename)
-				i = i + 1
+			for i in range(len(s)):
+				if(s[i].star):
+				#In the starred interfaces, look for those not queried yet
+					IPN = str(s[i].ip)
+                                        AN = (IPN.split(".")[0]).zfill(3)
+                                        BN = (IPN.split(".")[1]).zfill(3)
+                                        CN = (IPN.split(".")[2]).zfill(3)
+                                        DN = (IPN.split(".")[3]).zfill(3)
+                                        near_suffix = AN + BN + CN + DN
+                                        ip_formatted = str(s[i].ip)
+					#For each far-end, find all the near-ends below. Query those preveiously unqueried
+					for n in range(len(far_ip_tags)):
+                                                output_file = file_path + \
+file_prefix + far_ip_tags[n] + "." + near_suffix + ".ts"
+                                        	ip_filename = file_path + \
+file_prefix + far_ip_tags[n] + "." + near_suffix
+						verifier = "ls " + file_path + "*" + near_suffix + ".ts"
+						proc = subprocess.Popen( verifier, shell=True, \
+stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+						out,err = proc.communicate()
+						if len(out > 1):
+							print "file already queried, copying to this file"
+							line = str(out)
+							file_to_copy = line.splitlines()[0]
+							copying_command = "cp " + file_to_copy + " " + output_file
+							try:
+								proc = subprocess.Popen( copying_command, shell=True, \
+	stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+							except:
+								print "error copying file"			
+							continue
+						#If near_end hasn't been queried before, query it now
+						h = open(ip_filename,'w+')
+						h.write(ip_formatted)
+						h.close()	
+						output = bytearray()
+						output = subprocess.check_output(["perl", \
+"/home/agamerog/imc/bismark_create_ts.pl", mon, ip_filename, dates])
+						if len(output) > 0:
+							plot = 1
+							output_file = ip_filename + ".ts"
+							f = open(output_file,'w+')
+							f.write(output)
+							f.close()
+							near_plotter_list.append(output_file)
+						else:
+							os.remove(ip_filename)
 		
 		if(plot):
 		#if(1):
