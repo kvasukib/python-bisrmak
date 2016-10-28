@@ -185,7 +185,7 @@ file_prefix + far_ip_tags[n] + "." + near_suffix
 						proc = subprocess.Popen( verifier, shell=True, \
 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 						out,err = proc.communicate()
-						if len(out > 1):
+						if len(out) > 1:
 							print "file already queried, copying to this file"
 							line = str(out)
 							file_to_copy = line.splitlines()[0]
